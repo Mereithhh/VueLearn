@@ -41,3 +41,6 @@
 		.item:active {
 			background-color: aqua;
 		}
+		.item:hover {
+			background-color: aqua;
+		}
