@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> VAN♂计算器 </title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+
+	</head>
+	<body>
+<div class="app">
+		<div id="cal">
+			<h1>VAN♂计算器</h1>
+			<p id="show">{{ r }}</p>
+			<div id="main">
+				<button v-for="item in items" :class="theclass" @click="clickon" v-bind:value="item" :style="hhh">{{ item }}</button>
+			</div>
+		</div>
+</div>
+	
+	<script type="text/javascript">
+		
+		    function loadCSS() {
+		        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|wOSBrowser|BrowserNG|WebOS)/i))) {
+		            document.write('<link href="index_mobile.css" rel="stylesheet" type="text/css" media="screen" />');
+		        }
+		        else {
+		            document.write('<link href="index.css" rel="stylesheet" type="text/css" media="screen" />');
+		        }
+		    }
+		    loadCSS();
+		
+		
+		
+		var app = new Vue({
+			el: '#cal',
+			data:{
+				items:['1','2','3','+','4','5','6','-','7','8','9','x','C','0','=','/'],
+				r: '没得结果',
+				theclass: 'item',
+				num1: '',
+				now: '',
+				s: '',
+			},
+			methods:{
+				clickon:function(event){
+					
+					if (!isNaN(event.target.value)) {
+						this.now = this.now + event.target.value;
+						this.r = this.now;
+					}
+					else if (event.target.value == '='){
+						if (this.s == '+'){
+							this.r = parseInt(this.num1) + parseInt(this.now);
+						}
+						else if (this.s == '-'){
+							this.r = parseInt(this.num1) - parseInt(this.now);
+						}
+						else if (this.s == 'x'){
+							this.r = parseInt(this.num1) * parseInt(this.now);
+						}
+						else if (this.s == '/'){
+							this.r = parseInt(this.num1) / parseInt(this.now);
+						}
+						else {
+							
+						}
+						this.num1 = this.r;
+							
+					}
+					else if (event.target.value == 'C'){
+						this.s = '';
+						this.r = '已清空';
+						this.num1 = '';
+						this.now = '';
+					}
+					else {
+						if ( this.num1== ''){
+							this.num1 = this.now;
+							this.s = event.target.value;
+							this.r = event.target.value;
+							this.now = '';
+						}
+						else {
+							this.s = event.target.value;
+							this.r = event.target.value;
+							this.now = '';
+						}
+					}					
+				}
+			}
+		})
+
+	</script>
+
+	</body>
+	
+
+</html>
