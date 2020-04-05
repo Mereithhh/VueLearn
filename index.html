@@ -7,15 +7,19 @@
 
 	</head>
 	<body>
-		
+<div class="app">
 		<div id="cal">
 			<h1>VAN♂计算器</h1>
 			<p id="show">{{ r }}</p>
 			<div id="main">
-				<button v-for="item in items" :class="theclass" @click="clickon" v-bind:value="item">{{ item }}</button>
+				<button v-for="item in items" :class="theclass" @click="clickon" v-bind:value="item" :style="hhh">{{ item }}</button>
 			</div>
 		</div>
+</div>
 	<style>
+		.app {
+			
+		}
 		h1 {
 			text-align: center;
 			background-color: #b2dbff;
@@ -24,8 +28,8 @@
 			border-bottom: 1px solid #000000 ;
 		}
 		#cal {
-			width: 300px;
-			margin: 30px;
+			width: 100%;
+			
 			border: 1px #000000 solid;
 			
 		}
@@ -44,9 +48,10 @@
 		}
 		.item {
 			width: 25%;
+			
 			margin: 0px;
 			border: 0.1px solid #000000;
-			padding: 20px;
+			padding: 50px;
 			font-size: 20px;
 			background-color: #F0F8FF;
 			
