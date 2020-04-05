@@ -37,7 +37,7 @@
 			background-color: #F0F8FF;
 			
 		}
+		.item:active {
+background-color: aqua;
+}
 
-		.item:focus{
-			background-color: aqua;
-		}
